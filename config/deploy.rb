@@ -1,5 +1,5 @@
 set :application, "ogakskorg"
-set :repository, "git@github.com:ogaksk/raspi_croud.git"
+set :repository, "git@github.com:ogaksk/ogaksk.org.git"
 # set :repository,  "#{Dir::pwd}/.git"
 # set :local_repository, "#{Dir::pwd}/.git"
 
