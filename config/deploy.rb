@@ -20,15 +20,25 @@ set :git_shallow_clone, 1
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
+set :node_env, 'production'
 
 namespace :deploy do
   task :start, :roles => :app do
+    run "cd #{current_path} && NODE_ENV=#{node_env} node_modules/forever/bin/forever start app.js --port=1337"
   end
   
   task :stop, :roles => :app do
+    run "cd #{current_path} && node_modules/forever/bin/forever stop app.js"
   end
 
   task :restart, :roles => :app, :except => { :no_release => true } do
+    run "cd #{current_path} && NODE_ENV=#{node_env} node_modules/forever/bin/forever restart app.js --port=1337"
   end
+  
+  task :npm_install, :roles => :app, :except => { :no_release => true } do
+    #puts "current_path: #{current_path}"
+    run "cd #{current_path} && npm install"
+  end
+
 end
 
