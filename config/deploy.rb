@@ -24,7 +24,7 @@ set :node_env, 'production'
 
 namespace :deploy do
   task :start, :roles => :app do
-    run "cd #{current_path} && NODE_ENV=#{node_env} node_modules/forever/bin/forever start app.js --prod --port=1337"
+    run "cd #{current_path} && NODE_ENV=#{node_env} node_modules/forever/bin/forever -w start app.js --port=1337"
   end
   
   task :stop, :roles => :app do
@@ -32,7 +32,7 @@ namespace :deploy do
   end
 
   task :restart, :roles => :app, :except => { :no_release => true } do
-    run "cd #{current_path} && NODE_ENV=#{node_env} node_modules/forever/bin/forever restart app.js --prod --port=1337"
+    run "cd #{current_path} && NODE_ENV=#{node_env} node_modules/forever/bin/forever -w restart app.js --port=1337"
   end
   
   task :npm_install, :roles => :app, :except => { :no_release => true } do
