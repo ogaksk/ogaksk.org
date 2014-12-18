@@ -27,7 +27,8 @@
     "minimist": "*",
     "isstream" : "*",
     "cycle" : "*", 
-    "async" : "*"
+    "async" : "*",
+    "stack-trace" : "*"
   },
   "scripts": {
     "start": "node app.js",
