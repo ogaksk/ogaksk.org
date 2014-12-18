@@ -42,12 +42,12 @@ namespace :deploy do
 end
 
 
-# after 'deploy:create_symlink', 'deploy:npm_install'
+after 'deploy:create_symlink', 'deploy:npm_install'
 
-# after "deploy:create_symlink", :roles => :app do
-#   run "ln -svf #{shared_path}/node_modules #{current_path}/node_modules"
-#   run "cd #{current_path} && npm i"
-# end
+after "deploy:create_symlink", :roles => :app do
+  run "ln -svf #{shared_path}/node_modules #{current_path}/node_modules"
+  run "cd #{current_path} && npm i"
+end
 
 after "deploy:setup", :roles => :app do
   run "mkdir -p #{shared_path}/node_modules"
