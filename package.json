@@ -23,12 +23,7 @@
     "grunt-contrib-less": "0.11.1",
     "grunt-contrib-coffee": "~0.10.1",
     "forever" : "*",
-    "pkginfo": "*",
-    "minimist": "*",
-    "isstream" : "*",
-    "cycle" : "*", 
-    "async" : "*",
-    "stack-trace" : "*"
+    "pkginfo": "*"
   },
   "scripts": {
     "start": "node app.js",
