@@ -26,7 +26,8 @@
     "pkginfo": "*",
     "minimist": "*",
     "isstream" : "*",
-    "cycle" : "*"
+    "cycle" : "*", 
+    "async" : "*"
   },
   "scripts": {
     "start": "node app.js",
