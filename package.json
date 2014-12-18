@@ -25,7 +25,8 @@
     "forever" : "*",
     "pkginfo": "*",
     "minimist": "*",
-    "isstream" : "*"
+    "isstream" : "*",
+    "cycle" : "*"
   },
   "scripts": {
     "start": "node app.js",
