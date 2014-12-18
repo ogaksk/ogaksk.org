@@ -1,2 +1,3 @@
-# ogaksk.org
-### a Sails application
+# ogatest
+
+a [Sails](http://sailsjs.org) application
