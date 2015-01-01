@@ -21,12 +21,12 @@ module.exports = {
   index: function (req,res) {
     res.writeHead(200, {'content-type': 'text/html'});
     res.end(
-    '<form action="http://localhost:1337/file/upload" enctype="multipart/form-data" method="post">'+
+    '<form action="file/upload" enctype="multipart/form-data" method="post">'+
     '<input type="text" name="title"><br>'+
     '<input type="file" name="avatar" multiple="multiple"><br>'+
     '<input type="submit" value="Upload">'+
     '</form>' +
-    '<img src="images/test.png" />'
+    '<img src="/images/test.png" />'
     )
   }, 
 
