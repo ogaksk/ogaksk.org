@@ -1,0 +1,19 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+<script>
+$(function () {
+  $('#popup-container').click(function() {
+    console.log("click")
+    var ts = Math.round(new Date().getTime() / 1000);
+    var url = "/images/test.png?"+ ts;
+    var imgPreloader=new Image();
+    imgPreloader.onload=function() {
+      $("img").attr({ 'src':url });
+    }
+    imgPreloader.src=url;
+
+  });
+});
+</script>
+
+<div id="popup-container">this</div>
+<img></img>
