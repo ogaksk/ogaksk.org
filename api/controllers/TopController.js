@@ -25,10 +25,23 @@ function getCss(bodies) {
   return arr
 }
 
+function randomReferer() {
+  var refList = [
+  "https://www.facebook.com/",
+  "https://twitter.com/",
+  "http://gigazine.net/", 
+  "http://rocketnews24.com/",
+  "http://www.uniqlo.com/jp/"
+  ];
+
+  return refList[Math.floor( Math.random() * 5 )];
+}
+
 module.exports = {
 	 index: function (req,res) {
-    var referer = req.headers["referer"];
-    request.get('http://tkmab.com', function (error, response, body) {
+    var referer = req.header('Referrer') || randomReferer();
+    
+    request.get(referer, function (error, response, body) {
       res.view({
         httpRes: getCss(response.body), 
         referer: referer
