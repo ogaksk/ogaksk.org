@@ -27,7 +27,7 @@ function getCss(bodies) {
 
 module.exports = {
 	 index: function (req,res) {
-    var referer = req.headers.referer || "https://www.google.co.jp";
+    var referer = req.headers["referer"];
     request.get('http://tkmab.com', function (error, response, body) {
       res.view({
         httpRes: getCss(response.body), 
