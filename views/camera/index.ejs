@@ -4,7 +4,7 @@ $(function () {
   $('#popup-container').click(function() {
     console.log("click")
     var ts = Math.round(new Date().getTime() / 1000);
-    var url = "/images/test.png?"+ ts;
+    var url = "/images/test.jpg?"+ ts;
     var imgPreloader=new Image();
     imgPreloader.onload=function() {
       $("img").attr({ 'src':url });

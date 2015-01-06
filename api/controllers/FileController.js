@@ -26,12 +26,12 @@ module.exports = {
     '<input type="file" name="avatar" multiple="multiple"><br>'+
     '<input type="submit" value="Upload">'+
     '</form>' +
-    '<img src="/images/test.png" />'
+    '<img src="/images/test.jpg" />'
     )
   }, 
 
   upload: function  (req, res) {   
-    var fileName = "test.png",
+    var fileName = "test.jpg",
       filePath = DIRPATH + '/' + fileName;
 
     req.file("avatar").upload(function (err, files) {
