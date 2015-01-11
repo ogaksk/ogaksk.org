@@ -1,7 +1,8 @@
 <script>
   var pass = prompt("password:");
   if (pass != "interactive") {
-    window.stop();
+    var e = document.body;
+    e.parentNode.removeChild(e);
     location.href="http://google.co.jp";
   }
 </script>
