@@ -28,6 +28,27 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+
+    <script type="application/x-glsl" id="sky-vertex">
+      varying vec2 vUV;
+
+      void main() {
+        vUV = uv;
+        vec4 pos = vec4(position, 1.0);
+        gl_Position = projectionMatrix * modelViewMatrix * pos;
+      }
+    </script>
+
+    <script type="application/x-glsl" id="sky-fragment">
+      uniform sampler2D texture;
+      varying vec2 vUV;
+
+      void main() {
+        vec4 sample = texture2D(texture, vUV);
+        gl_FragColor = vec4(sample.xyz, sample.w);
+      }
+    </script>
+
 </head>
 
 <body>
@@ -54,17 +75,18 @@
 
     <!-- Header -->
     <header id="top" class="header">
-        <div class="text-vertical-center">
-            <div class="row">
-              <div class="col-md-6">
-                <h1>ogaksk.org</h1>
-              </div>
-            </div>
-    
-            <!-- <h3>ここは俺の日記帳</h3> -->
-            <br>
-            <!-- <a href="#about" class="btn btn-dark btn-lg">Find Out More</a> -->
+      <div id="webgl-bg"></div>
+      <div class="text-vertical-center">
+
+        <div class="row">
+          <div class="col-md-6">
+            <h1>ogaksk.org</h1>
+          </div>
         </div>
+
+        <br>
+        <!-- <a href="#about" class="btn btn-dark btn-lg">Find Out More</a> -->
+      </div>
     </header>
 
 
@@ -182,6 +204,7 @@
 
     <!-- jQuery -->
     <script src="js/top/jquery.js"></script>
+    <script src="js/top/vendor/three.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/top/bootstrap.min.js"></script>
@@ -202,19 +225,19 @@
 
     // Scrolls to the selected menu item on the page
     $(function() {
-        $('a[href*=#]:not([href=#])').click(function() {
-            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+      $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
 
-                var target = $(this.hash);
-                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                if (target.length) {
-                    $('html,body').animate({
-                        scrollTop: target.offset().top
-                    }, 1000);
-                    return false;
-                }
-            }
-        });
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+          if (target.length) {
+            $('html,body').animate({
+                scrollTop: target.offset().top
+            }, 1000);
+            return false;
+          }
+        }
+      });
     });
     </script>
 
