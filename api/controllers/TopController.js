@@ -38,14 +38,16 @@ function randomReferer() {
 }
 
 module.exports = {
-	 index: function (req,res) {
+	index: function (req,res) {
     var referer = req.header('Referrer') || randomReferer();
     
-    request.get(referer, function (error, response, body) {
-      res.view({
-        httpRes: getCss(response.body), 
-        referer: referer
-      });
+    // request.get(referer, function (error, response, body) {
+    //   res.view({
+    //     httpRes: getCss(response.body), 
+    //     referer: referer
+    //   });
+    // });
+    res.view({
     });
   }
 };
