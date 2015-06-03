@@ -6,6 +6,7 @@
  */
 var request = require('request');
 var jsdom = require("jsdom"); 
+var tumblrApi = "http://api.tumblr.com/v2/blog/ogaksk.tumblr.com/posts/photo?api_key=OIw2IeiARIPWtiarpM03ckcJlDYLAIU8DIdNoLAN3m9Fm66fjN&limit=1";
 var $ = require('jquery')(require("jsdom").jsdom().parentWindow);
 
 // function getCss(bodies) {
@@ -25,6 +26,8 @@ function getCss(bodies) {
   return arr
 }
 
+
+
 function randomReferer() {
   var refList = [
   "https://www.facebook.com/",
@@ -39,16 +42,19 @@ function randomReferer() {
 
 module.exports = {
 	index: function (req,res) {
-    var referer = req.header('Referrer') || randomReferer();
+    // var referer = req.header('Referrer') || randomReferer();
     
-    // request.get(referer, function (error, response, body) {
-    //   res.view({
-    //     httpRes: getCss(response.body), 
-    //     referer: referer
-    //   });
-    // });
-    res.view({
+    request.get(tumblrApi, function (error, response, body) {
+      var data = JSON.parse(body);
+
+      res.view({
+        imgUrl: data.response.posts[0].photos[0].alt_sizes[0].url, 
+        date: data.response.posts[0].date,
+        caption: data.response.posts[0].caption
+      });
     });
+    // res.view({
+    // });
   }
 };
 
