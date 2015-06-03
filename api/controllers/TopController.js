@@ -6,7 +6,7 @@
  */
 var request = require('request');
 // var jsdom = require("jsdom"); 
-var tumblrApi = "http://api.tumblr.com/v2/blog/ogaksk.tumblr.com/posts/photo?api_key=OIw2IeiARIPWtiarpM03ckcJlDYLAIU8DIdNoLAN3m9Fm66fjN&limit=1";
+var tumblrApi = "http://api.tumblr.com/v2/blog/ogaksk.tumblr.com/posts/video?api_key=OIw2IeiARIPWtiarpM03ckcJlDYLAIU8DIdNoLAN3m9Fm66fjN&limit=1";
 // var $ = require('jquery')(require("jsdom").jsdom().parentWindow);
 
 // function getCss(bodies) {
