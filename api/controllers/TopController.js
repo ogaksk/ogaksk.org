@@ -48,15 +48,15 @@ module.exports = {
       if (!error) {
         var data = JSON.parse(body);
         res.view({
-          imgUrl: data.response.posts[0].photos[0].alt_sizes[0].url, 
+          imgUrl: data.response.posts[0].trail[0].video_url, 
           date: data.response.posts[0].date,
           caption: data.response.posts[0].caption
         });
       } else {
         res.view({
           imgUrl: "", 
-          date: "",
-          caption: ""
+          date: "test",
+          caption: "test"
         });
       }
     });
